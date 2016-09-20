@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Protos SpotMaps</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="spotmap1.js"></script>
+    <script type="text/javascript" src="markerclusterer.js"></script>
+ 
+    <script type="text/javascript">
+ $(document).ready(
+        function () {
+        IPMapper.initializeMap("map");
+        function onDataReceived(series) {
+        	 var ipArray = [];
+                //alert(series.ips[0].label);
+
+		for(ipObject in series.ips){
+				//alert(ipObject);
+                              ipArray = ipArray.concat(series.ips[ipObject].label);
+                        }
+	//	alert(ipArray);
+             var markers = IPMapper.addIPArray(ipArray);
+	//	alert("ATTACKERS" + markers);
+        }
+	
+	function onSensorDataReceived(sensors) {
+		var ipArray = [];
+		//alert(sensors.sensors);
+		ipArray = sensors.sensors;
+		var markers = IPMapper.addBlueIPArray(ipArray);
+	//	alert("SENSORS" + markers);
+	}
+        
+        function fetchData() {
+            $.getJSON("/promis/returnTopData.php?granularity=Day&top=50",onDataReceived);
+                        //setTimeout(fetchData, 32000);
+        }
+	function fetchSensors(){
+		$.getJSON("/promis/returnLiveSensors.php?granularity=Day",onSensorDataReceived);
+                        //setTimeout(fetchSensors, 32000);
+	}
+        fetchData();
+	fetchSensors();
+
+});     
+
+    
+  //  $(function(){	
+  //  try{
+   //     IPMapper.initializeMap("map");
+    //    var ipArray = ["147.102.23.22", "147.102.23.200", "31.13.86.4", "147.102.23.177", "188.92.40.78"];
+//function onTopDataReceived(map){
+//			$.getJSON("http://protos.cti.gr/promis/returnTopData.php?granularity=Day",onTopDataReceived);
+//		}
+  //      IPMapper.addIPArray(ipArray);
+
+  //  } catch(e){
+        //handle error
+  //  }
+		
+//});
+
+    </script>
+</head>
+<body>
+    <input id="ip" name="ip" type="text" />
+	
+    <button onclick="IPMapper.addIPMarker($('#ip').val());">Find IP Location on Map</button>
+	<input type="hidden" id="ipprotos" name="ipprotos"  value="147.102.23.200"/> 
+        
+        <button onclick="IPMapper.addIPMarker($('#ipprotos').val());">Protos on Map</button>
+       
+    <div id="map" style="height: 500px;"></div>
+</body>
+</body>
+</body>
+</html>
+

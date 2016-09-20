@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane id="MainAnchorPane" prefHeight="578.0" prefWidth="889.000022070315" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="notsofatclient.MainController">
+  <children>
+    <AnchorPane minHeight="95.0" prefHeight="95.0" prefWidth="890.000022070315" styleClass="shiny-green" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0">
+      <children>
+        <ImageView id="protosLogo.png" fitHeight="58.0" fitWidth="234.00009999999747" layoutX="14.0" layoutY="21.0">
+          <image>
+            <Image url="@protos.png" preserveRatio="true" smooth="true" />
+          </image>
+        </ImageView>
+      </children>
+    </AnchorPane>
+    <AnchorPane id="AnchorPane" maxWidth="338.000022070315" minWidth="206.00002207031503" prefHeight="483.0" prefWidth="211.00002207031503" styleClass="blackList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="95.0">
+      <children>
+        <VBox minWidth="206.00002207031503" prefHeight="483.0" prefWidth="212.00002207031503" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <Button id="homeButton" mnemonicParsing="false" onAction="#showWeb" prefWidth="212.0" styleClass="shiny-green" text="Home" />
+            <Button id="maGraph" fx:id="malwareActivityButton" minWidth="210.0" mnemonicParsing="false" onAction="#showgridpane" prefWidth="340.0" styleClass="shiny-green" text="Malware Activity" />
+            <Button id="erGraph" fx:id="derivativeButton" minWidth="210.0" mnemonicParsing="false" onAction="#showgridpane" prefWidth="340.0" styleClass="shiny-green" text="Derivatives" />
+            <Button id="aiGraph" fx:id="topButton" minWidth="210.0" mnemonicParsing="false" onAction="#showgridpane" prefWidth="340.0" styleClass="shiny-green" text="Top" />
+            <Button id="maps" fx:id="mapButton" minWidth="210.0" mnemonicParsing="false" onAction="#showMaps" prefWidth="340.0" styleClass="shiny-green" text="SpotMaps" />
+            <Button id="Live" fx:id="liveButton" mnemonicParsing="false" onAction="#showLiveCharts" prefWidth="212.0" styleClass="shiny-green" text="Live Activity" />
+            <Button id="sdDiagnosis" fx:id="globalButton" mnemonicParsing="false" onAction="#showGlobalCharts" prefWidth="213.0" styleClass="shiny-green" text="Global Activity" />
+            <Button fx:id="sdDiagnosis" mnemonicParsing="false" prefWidth="213.0" styleClass="shiny-green" text="System Diagnosis" />
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="liveAnchor" prefHeight="483.0" prefWidth="679.000022070315" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0">
+      <children>
+        <VBox prefHeight="483.0" prefWidth="679.000022070315" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <LineChart fx:id="malActivityChart" prefHeight="238.0" prefWidth="679.000022070315" title="Malware Chart" VBox.vgrow="ALWAYS">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <LineChart fx:id="derActivityChart" prefHeight="231.0" prefWidth="679.000022070315" title="Derivatives" VBox.vgrow="ALWAYS">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+    <AnchorPane id="" fx:id="mainanchorpane" prefHeight="483.0" prefWidth="678.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="95.0">
+      <children>
+        <WebView fx:id="webView" maxHeight="483.0" maxWidth="679.000022070315" prefHeight="483.0" prefWidth="679.000022070315" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <LineChart fx:id="malwareChart" prefHeight="391.0" prefWidth="680.000022070315" title="Malware Activity" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="92.0">
+          <xAxis>
+            <CategoryAxis id="dateAxis" fx:id="xAxis" label="Date Time" side="BOTTOM">
+              <categories>
+                <FXCollections fx:factory="observableArrayList" />
+              </categories>
+            </CategoryAxis>
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
+        <GridPane fx:id="gridpane" layoutX="12.0" layoutY="36.0" prefHeight="64.0" prefWidth="313.0" visible="false">
+          <children>
+            <Label prefWidth="91.0" text="From" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <font>
+                <Font name="System Bold" size="12.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Label font="$x1" prefWidth="77.0" text="To" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button fx:id="drawButton" minHeight="16.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="182.0" styleClass="shiny-green1" text="Draw it" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="21.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="21.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <GridPane id="GridPane" fx:id="gridgranularity" layoutX="421.0" layoutY="43.0" prefHeight="66.0" prefWidth="177.0" visible="false">
+          <children>
+            <Label fx:id="gtlabel" font="$x1" prefWidth="182.0" text="Granularity" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ComboBox fx:id="combobox" prefHeight="21.0" prefWidth="144.0" styleClass="shiny-green1" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+        <Label fx:id="optionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="6.0" prefHeight="22.0" prefWidth="294.0" styleClass="shiny-green1" visible="false">
+          <effect>
+            <Glow />
+          </effect>
+        </Label>
+        <GridPane fx:id="chartbox" prefHeight="351.9999000000025" prefWidth="680.000022070315" styleClass="blackList, chartfont" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="131.0">
+          <children>
+            <PieChart id="PieChart" fx:id="protocolPie" minHeight="141.0" minWidth="159.0" prefHeight="339.0" prefWidth="222.0" styleClass="chartfont" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <PieChart id="PieChart" fx:id="portPie" minHeight="141.0" minWidth="159.0" prefHeight="339.0" prefWidth="222.0" styleClass="chartfont" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <PieChart id="PieChart" fx:id="ipPie" minHeight="141.0" minWidth="159.0" prefHeight="339.0" prefWidth="222.0" styleClass="chartfont" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="222.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="221.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="progressPane" onKeyPressed="#closeprocesse" prefHeight="488.999977929685" prefWidth="664.999977929685" styleClass="blackList-opacity" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <AnchorPane fx:id="progressPane2" prefHeight="484.0" prefWidth="678.000022070315" styleClass="blackList" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="94.0">
+          <children>
+            <Label fx:id="messageTask" prefHeight="52.0" prefWidth="300.5900218318965" styleClass="effect" textFill="WHITE" AnchorPane.bottomAnchor="316.0" AnchorPane.leftAnchor="185.41" AnchorPane.rightAnchor="192.0" AnchorPane.topAnchor="116.0">
+              <font>
+                <Font size="16.0" />
+              </font>
+            </Label>
+            <ProgressIndicator fx:id="indicator" prefHeight="95.0001220703125" prefWidth="100.99992207031755" progress="0.0" AnchorPane.bottomAnchor="213.0" AnchorPane.leftAnchor="273.5" AnchorPane.rightAnchor="303.5" AnchorPane.topAnchor="176.0" />
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="GlobalLive" prefHeight="483.0" prefWidth="679.000022070315" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0" />
+    <AnchorPane id="liveAnchor" fx:id="globalAnchor" prefHeight="483.0" prefWidth="679.000022070315" visible="false" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="105.0">
+      <children>
+        <VBox prefHeight="483.0" prefWidth="679.000022070315" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <LineChart id="malActivityChart" fx:id="malActivityGlobalChart" prefHeight="238.0" prefWidth="679.000022070315" title="Malware Chart" VBox.vgrow="ALWAYS">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <LineChart id="derActivityChart" fx:id="derActivityGlobalChart" prefHeight="231.0" prefWidth="679.000022070315" title="Derivatives" VBox.vgrow="ALWAYS">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@NotSoFatClient.css" />
+  </stylesheets>
+</AnchorPane>

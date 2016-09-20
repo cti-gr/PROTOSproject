@@ -1,0 +1,35 @@
+body {  
+  font-family: sans-serif;  
+  font-size: 16px;  
+  margin: 0px;  
+  max-width: 1000px;  
+  /*background-color:#000000;   */
+}  
+
+h1 {
+    margin: 20px;
+    color: orange;
+    text-shadow: gray 2px 2px 2px;
+    text-align: center;
+}
+
+h2 {
+    padding-top: 30px;
+    margin-left: 70px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+  
+div.graph {  
+    width:800px;  
+    height:200px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}   
+
+.graph2 {
+    width:900px;  
+    height:300px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}   

@@ -1,0 +1,92 @@
+/* 
+    Document   : NotSoFatClient
+    Created on : Jan 31, 2013, 11:12:27 AM
+    Author     : spyko
+    Description:
+        Purpose of the stylesheet follows.
+ */  
+
+root { 
+    display: block;
+}
+
+.blackList {
+    -fx-background-color:#000000;
+}
+
+.blackList-opacity {
+    -fx-background-color:rgba(33,33,33,0.5);
+    /*-fx-ba*/
+}
+
+.noroundedButton{
+    -fx-background-radius: 5,4,3,5;
+}
+
+.shiny-green {
+    -fx-background-color: 
+       linear-gradient(to bottom, #1d8900 0%,#1d8900 9%,#2dd300 58%,#31d600 71%,#31d600 72%,#0bea00 92%,#00ff11 100%,#ffffff 100%); 
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+
+.shiny-green1 {
+    -fx-background-color: 
+      linear-gradient(to bottom, #1d8900 0%,#1d8900 9%,#2dd300 58%,#31d600 71%,#31d600 72%,#0bea00 92%,#00ff11 100%,#ffffff 100%); 
+    -fx-background-radius: 0;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    
+}
+
+.chart-pie.default-color0 { -fx-pie-color: #8B008B; }
+
+.chart-pie.default-color1 { -fx-pie-color: #800000; }
+
+.chart-pie.default-color2 { -fx-pie-color: #00008B; }
+
+.chart-pie.default-color3 { -fx-pie-color: #A52A2A; }
+
+.chart-pie.default-color4 { -fx-pie-color: #D2691E; }
+
+.chart-pie.default-color5 { -fx-pie-color: #007308; }
+
+.chart-pie.default-color6 { -fx-pie-color: #697004; }
+
+.chart-pie.default-color7 { -fx-pie-color: #7E0707; }
+
+.chart-pie.default-color8 { -fx-pie-color: #4A1C85; }
+
+.chart-pie.default-color9 { -fx-pie-color: #592050; }
+
+.chart-pie.default-color  {background:#333333;  }
+
+.chart-pie.default-color {-fx-pie-font-color : #FFFFFF;}
+.chart-pie.default-color {-fx-text-fill: #FFFFFF;}
+
+.chart-pie-label {
+    -fx-fill: #ffffff;
+    -fx-font-size: 1em;
+} 
+
+.chartfont{
+    
+    -fx-fill: #ff0000;
+    -fx-font-size: 1em;
+    
+}
+
+
+.progressbar.effect {-fx-text-fill: #FFFFFF;}
+
+.list-cell{
+    -fx-text-fill: white;
+}
+
+
